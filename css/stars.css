@@ -62,11 +62,8 @@ body {
   ;
 }
 section {
-  /* background-color: var(--bgColor) !important; */
-  background-color: 
-  #2e2424
-
-  ;
+  position: relative;  /* Add relative positioning */
+  background-color: transparent;  /* Make section background transparent */
 }
 #stars1 {
   width: 1px;
