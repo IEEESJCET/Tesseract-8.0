@@ -107,7 +107,11 @@
   }
 }
 
-
+.responsive-svg {
+  width: 100%;
+  height: auto;
+  max-width: 300px; /* Adjust the max-width as needed */
+}
 
 .faq-wrapper {
   margin: auto;
