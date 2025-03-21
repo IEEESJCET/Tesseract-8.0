@@ -894,20 +894,18 @@ strong {
   SITE FOOTER              
 -----------------------------------------*/
 .site-footer {
-  background-color: var(--primary-color);
+  background-color: black; /* Changed from var(--primary-color) */
   position: relative;
   overflow: hidden;
   padding-bottom: 30px;
 }
 
 .footer-title {
-  color: var(--white-color);
+  color: white;
 }
 
 .site-footer-top {
-  background-color: white;
-  /* background-image: url('../images/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg'); */
-  background-repeat: no-repeat;
+  background-color: var(--primary-color); /* Changed from white */
   margin-bottom: 70px;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -928,22 +926,17 @@ strong {
 }
 
 .site-footer .links {
-  width: fit-content;
+  width: auto; /* Changed from fit-content */
 }
 
 .site-footer-links {
   padding-left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: fit-content;
-
+  margin: 0;
+  list-style: none;
 }
 
 .site-footer-link-item {
-  list-style: none;
-  display: inline-block;
-  margin-right: 15px;
+  margin-bottom: 10px; /* Added margin bottom */
 }
 
 .copyright-text {
@@ -1075,6 +1068,15 @@ strong {
 
   .ticket-form {
     padding: 30px;
+  }
+
+  .site-footer .container .row {
+    text-align: center;
+  }
+  
+  .site-footer .links,
+  .site-footer-links {
+    margin: 0 auto;
   }
 }
 
@@ -1418,4 +1420,120 @@ strong {
   .section-header span {
     font-size: 38px;
   }
+}
+
+/*--------------------------------------------------------------
+# Pricing Cards
+--------------------------------------------------------------*/
+.price-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.price-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.price-title {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.price-amount {
+  color: white;  /* Changed from var(--primary-color) to white */
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.price-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.price-features li {
+  color: white;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.price-features li i {
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.price-features li.disabled {
+  opacity: 0.6;
+}
+
+.price-features li.disabled i {
+  color: #dc3545;
+}
+
+.price-card .custom-btn {
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .price-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* FAQ and Contact Section Alignment Fixes */
+.contact-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-section .row {
+  width: 100%;
+}
+
+.faq-wrapper {
+  width: 100%;
+}
+
+.map {
+  width: 100%;
+  text-align: center;
+}
+
+.map iframe {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.trasportation {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.route {
+  justify-content: center;
+}
+
+/* Ensure FAQ content is properly spaced */
+.faq {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+.accordion {
+  width: 100%;
+  text-align: left;
 }
