@@ -664,12 +664,14 @@ strong {
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
+  width: 100%; /* Scales with parent container */
 }
 
 .artists-image {
   border-radius: var(--border-radius-medium);
   display: block;
   width: 100%;
+  height: auto; /* Maintains aspect ratio */
 }
 
 .artists-thumb:hover .artists-hover {
@@ -678,29 +680,43 @@ strong {
 }
 
 .artists-hover {
-  background-color: var(--primary-color);
   background-color: black;
   border-radius: var(--border-radius-medium);
   backdrop-filter: blur(5px) saturate(180%);
   -webkit-backdrop-filter: blur(5px) saturate(180%);
-  margin: 20px;
-  padding: 35px;
+  padding: clamp(10px, 5vw, 35px); /* Scales padding: min 10px, max 35px */
   transition: all 0.5s ease;
-  transform: translateY(100%);
+  transform: translateY(100%); /* Starts below image */
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
   opacity: 0;
+  width: calc(100% - clamp(20px, 5vw, 40px)); /* Width with gap, scales down */
+  margin: clamp(10px, 2.5vw, 20px); /* Adds gap all around, scales down */
+  height: auto; /* Adjusts to content */
+  max-height: calc(100% - clamp(20px, 5vw, 40px)); /* Fits within image with gap */
+  box-sizing: border-box; /* Padding doesn’t overflow */
+  overflow: hidden; /* Prevents content spill */
 }
 
+/* Responsive text sizing */
+.artists-hover p {
+  font-size: clamp(12px, 2vw, 18px); /* Scales text: min 12px, max 18px */
+  margin: 0; /* Removes default margins */
+  color: var(--white-color);
+  line-height: 1.4; /* Tightens line spacing */
+}
+
+/* Strong text styling */
 .artists-hover p strong {
   color: var(--white-color);
   display: inline-block;
-  min-width: 180px;
-  margin-right: 20px;
+  min-width: clamp(100px, 15vw, 180px); /* Scales min-width */
+  margin-right: clamp(10px, 2vw, 20px); /* Scales margin */
 }
 
+/* Link styling */
 .artists-hover p a {
   color: var(--secondary-color);
 }
@@ -709,10 +725,11 @@ strong {
   color: var(--white-color);
 }
 
+/* HR styling */
 .artists-hover hr {
-  margin: 1.5rem 0;
+  margin: clamp(0.5rem, 2vw, 1.5rem); /* Scales margin */
+  border-color: var(--white-color);
 }
-
 
 /*---------------------------------------
   SCHEDULE              
